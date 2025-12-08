@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate PWA Icons</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { color: #4F46E5; }
+        canvas {
+            display: block;
+            margin: 20px 0;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+        }
+        button {
+            background: #4F46E5;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover { background: #4338CA; }
+        .info {
+            background: #EEF2FF;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #4F46E5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Generate PWA Icons</h1>
+        <div class="info">
+            <p><strong>Quick Icon Generator</strong></p>
+            <p>This will generate simple placeholder icons with the 💰 emoji. Click "Generate All Icons" to create icons for all required sizes.</p>
+        </div>
+        
+        <canvas id="canvas" width="512" height="512"></canvas>
+        
+        <div>
+            <button onclick="generateAllIcons()">Generate All Icons (72-512px)</button>
+            <button onclick="generateSingleIcon(512)">Preview 512x512</button>
+        </div>
+        
+        <div id="downloads"></div>
+        
+        <div class="info" style="margin-top: 30px;">
+            <p><strong>For production:</strong></p>
+            <ul>
+                <li>Use a proper design tool (Figma, Illustrator, etc.)</li>
+                <li>Create a custom icon that represents your brand</li>
+                <li>Ensure proper spacing and visibility at all sizes</li>
+                <li>Test on different devices and backgrounds</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+        
+        function generateIcon(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Gradient background
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#4F46E5');
+            gradient.addColorStop(1, '#10B981');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Add emoji
+            const fontSize = size * 0.5;
+            ctx.font = `${fontSize}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('💰', size / 2, size / 2);
+            
+            return canvas;
+        }
+        
+        function generateSingleIcon(size) {
+            const canvas = document.getElementById('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Gradient background
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#4F46E5');
+            gradient.addColorStop(1, '#10B981');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Add emoji
+            const fontSize = size * 0.5;
+            ctx.font = `${fontSize}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('💰', size / 2, size / 2);
+        }
+        
+        function generateAllIcons() {
+            const downloadDiv = document.getElementById('downloads');
+            downloadDiv.innerHTML = '<h3>Download Icons:</h3>';
+            
+            sizes.forEach(size => {
+                const canvas = generateIcon(size);
+                canvas.toBlob(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `icon-${size}x${size}.png`;
+                    a.textContent = `Download icon-${size}x${size}.png`;
+                    a.style.display = 'block';
+                    a.style.margin = '10px 0';
+                    a.style.color = '#4F46E5';
+                    downloadDiv.appendChild(a);
+                });
+            });
+            
+            // Preview the largest one
+            generateSingleIcon(512);
+        }
+        
+        // Generate preview on load
+        generateSingleIcon(512);
+    </script>
+</body>
+</html>
