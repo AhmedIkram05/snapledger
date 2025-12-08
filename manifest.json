@@ -2,7 +2,7 @@
   "name": "SnapLedger - AI Finance Tracker",
   "short_name": "SnapLedger",
   "description": "AI-powered personal finance tracker with smart expense tracking and ML insights",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4F46E5",

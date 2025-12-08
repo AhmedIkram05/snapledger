@@ -1,14 +1,14 @@
 const CACHE_NAME = 'snapledger-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/app.js',
-  '/js/db.js',
-  '/js/ai.js',
-  '/js/charts.js',
-  '/js/utils.js',
-  '/manifest.json',
+  './',
+  './index.html',
+  './css/styles.css',
+  './js/app.js',
+  './js/db.js',
+  './js/ai.js',
+  './js/charts.js',
+  './js/utils.js',
+  './manifest.json',
   'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js',
   'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js',
   'https://cdn.jsdelivr.net/npm/idb@8.0.0/build/umd.js'
