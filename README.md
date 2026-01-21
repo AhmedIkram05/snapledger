@@ -10,6 +10,9 @@ SnapLedger is an AI-powered Progressive Web App (PWA) for intelligent personal f
 - **Storage**: IndexedDB via idb 8.0.0 (offline-first data persistence)
 - **PWA**: Service Worker API, Web App Manifest (installable, offline-capable)
 - **Development**: Live Server, NPM for package management
+ 
+## 🖼️ Screenshot
+![SnapLedger App Screenshot](assets/icons/READMEScreenshot.png)
 
 ## 📊 Features
 
