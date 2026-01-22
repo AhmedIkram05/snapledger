@@ -4,16 +4,16 @@
 
 /* CSS Variables */
 :root {
-    --primary-color: #4F46E5;
-    --primary-dark: #4338CA;
-    --secondary-color: #10B981;
+    --primary-color: #0F172A;
+    --primary-dark: #071026;
+    --secondary-color: #14B8A6;
     --danger-color: #EF4444;
     --warning-color: #F59E0B;
-    --background: #F9FAFB;
+    --background: #F8FAFC;
     --surface: #FFFFFF;
-    --text-primary: #111827;
-    --text-secondary: #6B7280;
-    --border-color: #E5E7EB;
+    --text-primary: #0B1220;
+    --text-secondary: #475569;
+    --border-color: #E2E8F0;
     --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --border-radius: 12px;
@@ -111,7 +111,7 @@ body {
 
 .nav-tab:hover {
     color: var(--primary-color);
-    background: rgba(79, 70, 229, 0.05);
+    background: rgba(20, 184, 166, 0.05);
 }
 
 .nav-tab.active {
@@ -255,7 +255,7 @@ body {
 }
 
 .transaction-item:hover {
-    background: rgba(79, 70, 229, 0.05);
+    background: rgba(20, 184, 166, 0.05);
 }
 
 .transaction-item:last-child {
@@ -327,14 +327,14 @@ body {
 .form-group select:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
 }
 
 /* AI Suggestion */
 .ai-suggestion {
     margin-top: 0.5rem;
     padding: 0.75rem;
-    background: rgba(79, 70, 229, 0.1);
+    background: rgba(20, 184, 166, 0.08);
     border-radius: 8px;
     font-size: 0.9rem;
     display: flex;
@@ -344,7 +344,7 @@ body {
 
 .ai-suggestion span {
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 /* Buttons */

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'snapledger-v1';
+const CACHE_NAME = 'snapledger-v2';
 const urlsToCache = [
   './',
   './index.html',
@@ -16,6 +16,8 @@ const urlsToCache = [
 
 // Install Service Worker
 self.addEventListener('install', event => {
+  // Activate new SW immediately
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
@@ -71,4 +73,7 @@ self.addEventListener('activate', event => {
       );
     })
   );
+
+  // Take control of uncontrolled clients as soon as the SW activates
+  event.waitUntil(self.clients.claim());
 });
