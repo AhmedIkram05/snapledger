@@ -63,7 +63,8 @@ npm install
 3. **Start the development server:**
 ```bash
 npm run dev
-# Or use: npm start
+# Or use
+npm start
 ```
 
 4. **Open your browser** and navigate to `http://localhost:3000`
