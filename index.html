@@ -279,7 +279,24 @@
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js')
-                .then(reg => console.log('Service Worker registered', reg))
+                .then(reg => {
+                    console.log('Service Worker registered', reg);
+
+                    reg.addEventListener('updatefound', () => {
+                        const installing = reg.installing;
+                        if (!installing) return;
+
+                        installing.addEventListener('statechange', () => {
+                            if (installing.state === 'installed' && navigator.serviceWorker.controller) {
+                                const shouldReload = confirm('A new version is available. Reload now?');
+                                if (shouldReload && reg.waiting) {
+                                    reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                })
                 .catch(err => console.log('Service Worker registration failed', err));
         }
     </script>

@@ -27,35 +27,42 @@ self.addEventListener('install', event => {
   );
 });
 
-// Cache and return requests
+// Network-first for HTML/CSS; stale-while-revalidate for others
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
+  const request = event.request;
 
-        return fetch(event.request).then(
-          response => {
-            // Check if valid response
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
+  // Only handle GET requests
+  if (request.method !== 'GET') {
+    return;
+  }
 
-            // Clone the response
-            const responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
+  if (request.destination === 'document' || request.destination === 'style') {
+    event.respondWith(
+      fetch(request)
+        .then(networkResponse => {
+          if (networkResponse && networkResponse.status === 200) {
+            caches.open(CACHE_NAME).then(cache => cache.put(request, networkResponse.clone()));
           }
-        );
-      })
+          return networkResponse;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(request).then(cachedResponse => {
+      const networkFetch = fetch(request)
+        .then(networkResponse => {
+          if (networkResponse && networkResponse.status === 200) {
+            caches.open(CACHE_NAME).then(cache => cache.put(request, networkResponse.clone()));
+          }
+          return networkResponse;
+        })
+        .catch(() => null);
+
+      return cachedResponse || networkFetch;
+    })
   );
 });
 
@@ -76,4 +83,11 @@ self.addEventListener('activate', event => {
 
   // Take control of uncontrolled clients as soon as the SW activates
   event.waitUntil(self.clients.claim());
+});
+
+// Allow the page to trigger immediate activation
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
