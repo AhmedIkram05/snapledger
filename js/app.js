@@ -412,7 +412,7 @@ async function updateInsights() {
     if (anomalies.length > 0) {
         anomaliesContainer.innerHTML = anomalies.map(anomaly => `
             <div class="insight">
-                <span class="insight-icon">⚠️</span>
+                <span class="insight-icon">${getIcon('alert-triangle')}</span>
                 <div class="insight-content">
                     <strong>${anomaly.severity === 'high' ? 'High Alert' : 'Notice'}</strong>
                     <p>${anomaly.reason}</p>
