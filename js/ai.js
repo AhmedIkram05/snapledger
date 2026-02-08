@@ -255,7 +255,7 @@ async function detectAnomalies(expenses) {
 async function generateInsights(expenses) {
     if (expenses.length === 0) {
         return [{
-            icon: '💡',
+            icon: '',
             title: 'Getting Started',
             message: 'Start adding your expenses to unlock AI-powered insights!',
             priority: 'low'
@@ -294,7 +294,7 @@ async function generateInsights(expenses) {
         
         if (Math.abs(change) > 10) {
             insights.push({
-                icon: change > 0 ? '📈' : '📉',
+                icon: change > 0 ? '' : '',
                 title: 'Spending Trend',
                 message: `Your spending has ${change > 0 ? 'increased' : 'decreased'} by ${Math.abs(change).toFixed(0)}% compared to the previous month`,
                 priority: change > 20 ? 'high' : 'medium'
@@ -314,7 +314,7 @@ async function generateInsights(expenses) {
         
         if (weekendPercentage > 30) {
             insights.push({
-                icon: '🎉',
+                icon: '',
                 title: 'Weekend Spending',
                 message: `${weekendPercentage.toFixed(0)}% of your spending happens on weekends (${formatCurrency(weekendTotal)})`,
                 priority: 'medium'
@@ -327,7 +327,7 @@ async function generateInsights(expenses) {
     const potentialSavings = dailyAverage * 0.15; // 15% reduction goal
     
     insights.push({
-        icon: '💰',
+        icon: '',
         title: 'Saving Opportunity',
         message: `Reducing daily spending by 15% could save you ${formatCurrency(potentialSavings * 30)} per month`,
         priority: 'medium'
@@ -357,13 +357,13 @@ async function checkSpendingAlerts(expenses, monthlyBudget) {
             alerts.push({
                 type: 'budget',
                 severity: 'high',
-                message: `⚠️ You've used ${percentage.toFixed(0)}% of your monthly budget!`
+                message: `You've used ${percentage.toFixed(0)}% of your monthly budget!`
             });
         } else if (percentage >= 75) {
             alerts.push({
                 type: 'budget',
                 severity: 'medium',
-                message: `⚡ You've used ${percentage.toFixed(0)}% of your monthly budget`
+                message: `You've used ${percentage.toFixed(0)}% of your monthly budget`
             });
         }
     }

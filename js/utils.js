@@ -34,16 +34,16 @@ function calculatePercentageChange(current, previous) {
 // Get category emoji
 function getCategoryEmoji(category) {
     const emojis = {
-        food: '🍔',
-        transport: '🚗',
-        shopping: '🛍️',
-        bills: '💡',
-        entertainment: '🎬',
-        health: '🏥',
-        education: '📚',
-        other: '📌'
+        food: '',
+        transport: '',
+        shopping: '',
+        bills: '',
+        entertainment: '',
+        health: '',
+        education: '',
+        other: ''
     };
-    return emojis[category] || '📌';
+    return emojis[category] || '';
 }
 
 // Get category name

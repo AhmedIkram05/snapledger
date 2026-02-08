@@ -1,9 +1,9 @@
-# 💰 SnapLedger (Progressive Web App)
+# SnapLedger (Progressive Web App)
 
-## 🚀 Overview
+## Overview
 SnapLedger is an AI-powered Progressive Web App (PWA) for intelligent personal finance management. It combines machine learning with modern web technologies to provide smart expense tracking, automatic categorization, spending predictions, and personalized financial insights—all running offline-first directly in your browser with complete data privacy.
 
-## 🧠 Tech Stack
+## Tech Stack
 - **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3
 - **ML/AI**: TensorFlow.js 4.15.0 (client-side machine learning)
 - **Data Visualization**: Chart.js 4.4.1 (interactive charts and graphs)
@@ -11,25 +11,25 @@ SnapLedger is an AI-powered Progressive Web App (PWA) for intelligent personal f
 - **PWA**: Service Worker API, Web App Manifest (installable, offline-capable)
 - **Development**: Live Server, NPM for package management
  
-## 🖼️ Screenshot
+## Screenshot
 ![SnapLedger App Screenshot](assets/icons/READMEScreenshot.png)
 
-## 📊 Features
+## Features
 
-### 📱 PWA Capabilities
+### PWA Capabilities
 - **Installable**: Add to home screen on any device
 - **Offline-first**: Works without internet connection
 - **Responsive**: Optimized for mobile, tablet, and desktop
 - **Fast**: Service worker caching for instant loading
 
-### 🤖 AI/ML Features
+### AI/ML Features
 - **Smart Categorization**: Automatically categorizes expenses using ML
 - **Spending Predictions**: Forecasts future spending patterns
 - **Budget Recommendations**: AI-powered budget suggestions
 - **Anomaly Detection**: Alerts for unusual spending behavior
 - **Financial Insights**: Personalized tips and advice
 
-### 💰 Finance Features
+### Finance Features
 - **Expense Tracking**: Quick and easy expense entry
 - **Budget Management**: Set and track spending limits
 - **Visual Analytics**: Interactive charts and graphs
@@ -37,7 +37,7 @@ SnapLedger is an AI-powered Progressive Web App (PWA) for intelligent personal f
 - **Search & Filter**: Find transactions quickly
 - **Export Data**: Download your financial data
 
-## � Results & Impact
+## Results & Impact
 - **Offline-First Architecture**: 100% functional without internet connection
 - **Instant Load Times**: Service worker caching provides sub-second load times
 - **Smart Categorization**: Up to 95% confidence in automatic expense categorization
@@ -45,7 +45,7 @@ SnapLedger is an AI-powered Progressive Web App (PWA) for intelligent personal f
 - **Cross-Platform**: Works on desktop, tablet, and mobile with responsive design
 - **ML-Powered Insights**: Real-time spending predictions and anomaly detection using TensorFlow.js
 
-## �🚀 Getting Started
+## Getting Started
 
 ### Installation
 
@@ -76,7 +76,7 @@ npm start
 3. Confirm installation
 4. Access from your home screen
 
-## 🏗️ Architecture
+## Architecture
 
 ### Technology Stack
 - **Frontend**: Vanilla JavaScript, HTML5, CSS3
@@ -85,7 +85,7 @@ npm start
 - **Storage**: IndexedDB (via idb) for offline data persistence
 - **PWA**: Service Worker API for caching and offline support
 
-## 🤖 AI Features Explained
+## AI Features Explained
 
 ### Expense Categorization
 Uses a trained neural network to automatically categorize expenses based on description and amount patterns.
@@ -99,10 +99,10 @@ Machine learning algorithm suggests optimal budget allocations based on your spe
 ### Anomaly Detection
 Identifies unusual transactions that deviate from normal spending patterns.
 
-## 📊 Data Privacy
+## Data Privacy
 
 All data is stored locally on your device using IndexedDB. No data is sent to external servers. The ML models run entirely in your browser using TensorFlow.js.
 
-## 🔧 Configuration
+## Configuration
 
 You can customize categories, budgets, and preferences in the app settings.
