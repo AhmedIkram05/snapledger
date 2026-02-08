@@ -278,8 +278,8 @@
 
     <!-- Register Service Worker -->
     <script>
+        let refreshing = false;
         if ('serviceWorker' in navigator) {
-            let refreshing = false;
 
             navigator.serviceWorker.addEventListener('controllerchange', () => {
                 if (refreshing) return;
