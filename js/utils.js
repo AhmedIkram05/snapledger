@@ -31,7 +31,12 @@ function calculatePercentageChange(current, previous) {
     return ((current - previous) / previous) * 100;
 }
 
-// Get category emoji
+// Get category icon (SVG icon HTML)
+function getCategoryIcon(category) {
+    return getCategoryIconHTML(category);
+}
+
+// Get category emoji (deprecated - kept for backward compatibility in charts)
 function getCategoryEmoji(category) {
     const emojis = {
         food: '',

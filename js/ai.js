@@ -274,7 +274,7 @@ async function generateInsights(expenses) {
     if (topCategory) {
         const percentage = (topCategory[1] / totalSpent) * 100;
         insights.push({
-            icon: getCategoryEmoji(topCategory[0]),
+            icon: getCategoryIcon(topCategory[0]),
             title: 'Top Spending Category',
             message: `${getCategoryName(topCategory[0])} accounts for ${percentage.toFixed(0)}% of your monthly spending (${formatCurrency(topCategory[1])})`,
             priority: 'high'
@@ -294,7 +294,7 @@ async function generateInsights(expenses) {
         
         if (Math.abs(change) > 10) {
             insights.push({
-                icon: '',
+                icon: change > 0 ? getIcon('trending-up') : getIcon('trending-down'),
                 title: 'Spending Trend',
                 message: `Your spending has ${change > 0 ? 'increased' : 'decreased'} by ${Math.abs(change).toFixed(0)}% compared to the previous month`,
                 priority: change > 20 ? 'high' : 'medium'

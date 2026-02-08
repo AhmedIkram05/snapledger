@@ -311,7 +311,7 @@ function renderRecentTransactions(transactions) {
         <div class="transaction-item">
             <div class="transaction-info">
                 <div class="transaction-description">
-                    ${getCategoryEmoji(expense.category)} ${expense.description}
+                    ${getCategoryIcon(expense.category)} ${expense.description}
                 </div>
                 <div class="transaction-meta">
                     ${formatDate(expense.date)} • ${getCategoryName(expense.category)}
@@ -340,7 +340,7 @@ function renderExpensesList(expensesList) {
         <div class="transaction-item">
             <div class="transaction-info">
                 <div class="transaction-description">
-                    ${getCategoryEmoji(expense.category)} ${expense.description}
+                    ${getCategoryIcon(expense.category)} ${expense.description}
                 </div>
                 <div class="transaction-meta">
                     ${formatDate(expense.date)} • ${getCategoryName(expense.category)}
@@ -349,7 +349,7 @@ function renderExpensesList(expensesList) {
             <div class="transaction-amount">${formatCurrency(expense.amount)}</div>
             <div class="transaction-actions">
                 <button class="btn-icon" onclick="handleDeleteExpense('${expense.id}')" title="Delete">
-                    Delete
+                    ${getIcon('trash-2', 'delete-icon')}
                 </button>
             </div>
         </div>
