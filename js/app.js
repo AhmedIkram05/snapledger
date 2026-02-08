@@ -73,6 +73,14 @@ function setupEventListeners() {
         tab.addEventListener('click', (e) => {
             switchTab(e.target.dataset.tab);
         });
+        
+        // Add hover functionality for desktop devices
+        // Use matchMedia to check if the device supports hover (i.e., has a mouse/pointer device)
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            tab.addEventListener('mouseenter', (e) => {
+                switchTab(e.target.dataset.tab);
+            });
+        }
     });
     
     // Expense form
