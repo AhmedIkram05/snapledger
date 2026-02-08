@@ -598,3 +598,36 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-secondary);
 }
+
+/* Lucide Icons Styles */
+.category-icon svg,
+.insight-icon svg,
+.btn svg,
+.btn-icon svg,
+.delete-icon svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.category-icon svg {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.25rem;
+}
+
+.insight-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.btn svg {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5rem;
+}
+
+.btn-icon svg,
+.delete-icon svg {
+    width: 18px;
+    height: 18px;
+}

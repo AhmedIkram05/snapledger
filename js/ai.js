@@ -255,7 +255,7 @@ async function detectAnomalies(expenses) {
 async function generateInsights(expenses) {
     if (expenses.length === 0) {
         return [{
-            icon: '💡',
+            icon: getIcon('lightbulb'),
             title: 'Getting Started',
             message: 'Start adding your expenses to unlock AI-powered insights!',
             priority: 'low'
@@ -274,7 +274,7 @@ async function generateInsights(expenses) {
     if (topCategory) {
         const percentage = (topCategory[1] / totalSpent) * 100;
         insights.push({
-            icon: getCategoryEmoji(topCategory[0]),
+            icon: getCategoryIcon(topCategory[0]),
             title: 'Top Spending Category',
             message: `${getCategoryName(topCategory[0])} accounts for ${percentage.toFixed(0)}% of your monthly spending (${formatCurrency(topCategory[1])})`,
             priority: 'high'
@@ -294,7 +294,7 @@ async function generateInsights(expenses) {
         
         if (Math.abs(change) > 10) {
             insights.push({
-                icon: change > 0 ? '📈' : '📉',
+                icon: change > 0 ? getIcon('trending-up') : getIcon('trending-down'),
                 title: 'Spending Trend',
                 message: `Your spending has ${change > 0 ? 'increased' : 'decreased'} by ${Math.abs(change).toFixed(0)}% compared to the previous month`,
                 priority: change > 20 ? 'high' : 'medium'
@@ -314,7 +314,7 @@ async function generateInsights(expenses) {
         
         if (weekendPercentage > 30) {
             insights.push({
-                icon: '🎉',
+                icon: getIcon('calendar'),
                 title: 'Weekend Spending',
                 message: `${weekendPercentage.toFixed(0)}% of your spending happens on weekends (${formatCurrency(weekendTotal)})`,
                 priority: 'medium'
@@ -327,7 +327,7 @@ async function generateInsights(expenses) {
     const potentialSavings = dailyAverage * 0.15; // 15% reduction goal
     
     insights.push({
-        icon: '💰',
+        icon: getIcon('piggy-bank'),
         title: 'Saving Opportunity',
         message: `Reducing daily spending by 15% could save you ${formatCurrency(potentialSavings * 30)} per month`,
         priority: 'medium'
@@ -357,13 +357,13 @@ async function checkSpendingAlerts(expenses, monthlyBudget) {
             alerts.push({
                 type: 'budget',
                 severity: 'high',
-                message: `⚠️ You've used ${percentage.toFixed(0)}% of your monthly budget!`
+                message: `${getIcon('alert-triangle')} You've used ${percentage.toFixed(0)}% of your monthly budget!`
             });
         } else if (percentage >= 75) {
             alerts.push({
                 type: 'budget',
                 severity: 'medium',
-                message: `⚡ You've used ${percentage.toFixed(0)}% of your monthly budget`
+                message: `${getIcon('zap')} You've used ${percentage.toFixed(0)}% of your monthly budget`
             });
         }
     }
