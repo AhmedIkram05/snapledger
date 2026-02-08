@@ -39,7 +39,7 @@ self.addEventListener('fetch', event => {
 
   if (request.destination === 'document' || request.destination === 'style' || request.destination === 'script') {
     event.respondWith(
-      fetch(new Request(request, { cache: 'no-cache' }))
+      fetch(new Request(request, { cache: 'reload' }))
         .then(networkResponse => {
           if (networkResponse && networkResponse.status === 200) {
             caches.open(CACHE_NAME).then(cache => cache.put(request, networkResponse.clone()));
