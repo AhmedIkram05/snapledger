@@ -22,12 +22,13 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => {
         console.log('Opened cache');
-        return cache.addAll(urlsToCache);
+        const cacheRequests = urlsToCache.map(url => new Request(url, { cache: 'reload' }));
+        return cache.addAll(cacheRequests);
       })
   );
 });
 
-// Network-first for HTML/CSS; stale-while-revalidate for others
+// Network-first for HTML/CSS/JS; stale-while-revalidate for others
 self.addEventListener('fetch', event => {
   const request = event.request;
 
@@ -36,9 +37,9 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  if (request.destination === 'document' || request.destination === 'style') {
+  if (request.destination === 'document' || request.destination === 'style' || request.destination === 'script') {
     event.respondWith(
-      fetch(request)
+      fetch(new Request(request, { cache: 'no-store' }))
         .then(networkResponse => {
           if (networkResponse && networkResponse.status === 200) {
             caches.open(CACHE_NAME).then(cache => cache.put(request, networkResponse.clone()));
