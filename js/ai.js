@@ -294,7 +294,7 @@ async function generateInsights(expenses) {
         
         if (Math.abs(change) > 10) {
             insights.push({
-                icon: change > 0 ? '' : '',
+                icon: '',
                 title: 'Spending Trend',
                 message: `Your spending has ${change > 0 ? 'increased' : 'decreased'} by ${Math.abs(change).toFixed(0)}% compared to the previous month`,
                 priority: change > 20 ? 'high' : 'medium'
