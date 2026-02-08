@@ -394,7 +394,7 @@ async function updateInsights() {
     if (recommendations.recommendations.length > 0) {
         recsContainer.innerHTML = recommendations.recommendations.map(rec => `
             <div class="insight">
-                <span class="insight-icon">${getIcon('lightbulb')}</span>
+                <span class="insight-icon"></span>
                 <div class="insight-content">
                     <strong>${rec.title}</strong>
                     <p>${formatCurrency(rec.amount)} - ${rec.reason}</p>
@@ -412,7 +412,7 @@ async function updateInsights() {
     if (anomalies.length > 0) {
         anomaliesContainer.innerHTML = anomalies.map(anomaly => `
             <div class="insight">
-                <span class="insight-icon">${getIcon('alert-triangle')}</span>
+                <span class="insight-icon"></span>
                 <div class="insight-content">
                     <strong>${anomaly.severity === 'high' ? 'High Alert' : 'Notice'}</strong>
                     <p>${anomaly.reason}</p>

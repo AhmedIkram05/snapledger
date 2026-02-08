@@ -255,7 +255,7 @@ async function detectAnomalies(expenses) {
 async function generateInsights(expenses) {
     if (expenses.length === 0) {
         return [{
-            icon: getIcon('lightbulb'),
+            icon: '',
             title: 'Getting Started',
             message: 'Start adding your expenses to unlock AI-powered insights!',
             priority: 'low'
@@ -314,7 +314,7 @@ async function generateInsights(expenses) {
         
         if (weekendPercentage > 30) {
             insights.push({
-                icon: getIcon('calendar'),
+                icon: '',
                 title: 'Weekend Spending',
                 message: `${weekendPercentage.toFixed(0)}% of your spending happens on weekends (${formatCurrency(weekendTotal)})`,
                 priority: 'medium'
@@ -327,7 +327,7 @@ async function generateInsights(expenses) {
     const potentialSavings = dailyAverage * 0.15; // 15% reduction goal
     
     insights.push({
-        icon: getIcon('piggy-bank'),
+        icon: '',
         title: 'Saving Opportunity',
         message: `Reducing daily spending by 15% could save you ${formatCurrency(potentialSavings * 30)} per month`,
         priority: 'medium'
@@ -357,13 +357,13 @@ async function checkSpendingAlerts(expenses, monthlyBudget) {
             alerts.push({
                 type: 'budget',
                 severity: 'high',
-                message: `${getIcon('alert-triangle')} You've used ${percentage.toFixed(0)}% of your monthly budget!`
+                message: `You've used ${percentage.toFixed(0)}% of your monthly budget!`
             });
         } else if (percentage >= 75) {
             alerts.push({
                 type: 'budget',
                 severity: 'medium',
-                message: `${getIcon('zap')} You've used ${percentage.toFixed(0)}% of your monthly budget`
+                message: `You've used ${percentage.toFixed(0)}% of your monthly budget`
             });
         }
     }
