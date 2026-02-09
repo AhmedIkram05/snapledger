@@ -172,8 +172,12 @@ body {
 /* Dashboard Grid */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
+}
+
+.dashboard-grid > * {
+    min-width: 0;
 }
 
 /* Summary Cards */
@@ -526,13 +530,25 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Tablet - 2 columns */
+@media (min-width: 640px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop - 3 columns */
+@media (min-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 639px) {
     .main-content {
         padding: 1rem;
-    }
-
-    .dashboard-grid {
-        grid-template-columns: 1fr;
     }
 
     .form-row {
