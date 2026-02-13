@@ -47,10 +47,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎨 Generate PWA Icons</h1>
+        <h1>Generate PWA Icons</h1>
         <div class="info">
             <p><strong>Quick Icon Generator</strong></p>
-            <p>This will generate simple placeholder icons with the 💰 emoji. Click "Generate All Icons" to create icons for all required sizes.</p>
+            <p>This will generate simple placeholder icons with a clean dollar-sign mark. Click "Generate All Icons" to create icons for all required sizes.</p>
         </div>
         
         <canvas id="canvas" width="512" height="512"></canvas>
@@ -89,12 +89,13 @@
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, size, size);
             
-            // Add emoji
+            // Add icon mark
             const fontSize = size * 0.5;
-            ctx.font = `${fontSize}px Arial`;
+            ctx.font = `bold ${fontSize}px Arial`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText('💰', size / 2, size / 2);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillText('$', size / 2, size / 2);
             
             return canvas;
         }
@@ -112,12 +113,13 @@
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, size, size);
             
-            // Add emoji
+            // Add icon mark
             const fontSize = size * 0.5;
-            ctx.font = `${fontSize}px Arial`;
+            ctx.font = `bold ${fontSize}px Arial`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText('💰', size / 2, size / 2);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillText('$', size / 2, size / 2);
         }
         
         function generateAllIcons() {

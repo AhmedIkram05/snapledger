@@ -32,7 +32,7 @@ You can use online tools to generate PWA icons from a single image:
 
 ## Quick Icon Creation
 
-For a simple placeholder, you can use these emoji as temporary icons:
-💰 (money bag) or 💵 (dollar bill) or 📊 (chart)
+For a simple placeholder, use a clean professional mark such as:
+$ (dollar symbol), a piggy bank outline, or a simple bar chart glyph
 
 Save this as a 512x512 PNG and resize for other dimensions.
